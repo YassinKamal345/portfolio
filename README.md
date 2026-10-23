@@ -2,7 +2,9 @@
 
 Personal portfolio of **Yassin Kamal**, systems administration (ASIX) student and aspiring penetration tester.
 
-🔗 **Live:** _add your Vercel URL here_
+🔗 **Live:** https://portfolio-sand-eight-20.vercel.app
+
+![Portfolio preview](img/og.png)
 
 ## Features
 - Bilingual (English / Español) with a language toggle

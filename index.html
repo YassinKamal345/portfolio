@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Yassin Kamal — Aspiring Pentester</title>
 <meta name="description" content="Yassin Kamal — Systems administration student and aspiring penetration tester. Projects, skills and certifications in offensive security and IT." />
+<link rel="canonical" href="https://portfolio-sand-eight-20.vercel.app/" />
+<meta name="theme-color" content="#070a0f" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://portfolio-sand-eight-20.vercel.app/" />
+<meta property="og:title" content="Yassin Kamal — Aspiring Pentester" />
+<meta property="og:description" content="Systems administration student on the path to penetration testing. Projects, homelab, skills and certifications." />
+<meta property="og:image" content="https://portfolio-sand-eight-20.vercel.app/img/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://portfolio-sand-eight-20.vercel.app/img/og.png" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070a0f'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-weight='700' font-size='30' fill='%2339ff14'%3E%3E_%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -199,6 +211,7 @@ header.nav{
 .card-links a{color:var(--neon);display:inline-flex;align-items:center;gap:6px;transition:.2s}
 .card-links a:hover{gap:10px}
 .card-links a.disabled{color:var(--muted-2);pointer-events:none}
+.note-lock{color:var(--muted);font-size:.8rem}
 
 .feat-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:center}
 .sub-t{color:var(--muted);font-weight:500;font-size:.95rem}
@@ -261,7 +274,8 @@ header.nav{
 /* languages */
 .langs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
 .lang-item{text-align:center;border:1px solid var(--line-2);background:var(--panel);border-radius:12px;padding:16px}
-.lang-item .fl{font-size:1.6rem}
+.lang-item .fl{font-size:1.6rem;height:2.2rem;display:flex;align-items:center;justify-content:center}
+.senyera{display:inline-block;width:1.9rem;height:1.3rem;border-radius:3px;background:repeating-linear-gradient(180deg,#fcdd09 0 11.11%,#da121a 11.11% 22.22%)}
 .lang-item .nm{font-weight:600;margin-top:6px;font-size:.95rem}
 .lang-item .lv{color:var(--muted);font-size:.78rem;font-family:var(--mono)}
 
@@ -358,10 +372,10 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
   <!-- stats -->
   <div class="wrap">
     <div class="stats reveal">
-      <div class="stat"><div class="n">4+</div><div class="l" data-i18n="stat.projects">Public projects</div></div>
+      <div class="stat"><div class="n">5</div><div class="l" data-i18n="stat.projects">Projects</div></div>
       <div class="stat"><div class="n">1</div><div class="l" data-i18n="stat.cert">Certification</div></div>
       <div class="stat"><div class="n">4</div><div class="l" data-i18n="stat.langs">Languages</div></div>
-      <div class="stat"><div class="n">∞</div><div class="l" data-i18n="stat.learn">Learning mode</div></div>
+      <div class="stat"><div class="n">6</div><div class="l" data-i18n="stat.learn">VLANs in my lab</div></div>
     </div>
   </div>
 </section>
@@ -381,9 +395,9 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
         <p data-i18n="about.p2">Right now I'm sharpening my fundamentals — networking, Linux, scripting and the core offensive tooling — before going after more certifications. I love the mix of <b>systems and hacking</b>: understanding how infrastructure works and then learning how to break and defend it.</p>
         <p data-i18n="about.p3">I come from a business &amp; technology background (Baccalauréat STMG, two years at UAB), which gives me a practical, product-minded view of IT. Today I apply it daily as an <b>IT Support Intern at Ukio</b>.</p>
         <div class="chips">
-          <span class="chip">📍 Barcelona, Spain</span>
-          <span class="chip">🎓 ASIX · final year</span>
-          <span class="chip">🛡️ Offensive security</span>
+          <span class="chip" data-i18n="chip.loc">📍 Barcelona, Spain</span>
+          <span class="chip" data-i18n="chip.study">🎓 ASIX · final year</span>
+          <span class="chip" data-i18n="chip.focus">🛡️ Offensive security</span>
           <span class="chip">💼 IT Support @ Ukio</span>
         </div>
       </div>
@@ -416,8 +430,7 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
             </ul>
             <div class="tech"><span>Proxmox</span><span>OPNsense</span><span>VLANs</span><span>WireGuard</span><span>Ansible</span><span>PostgreSQL</span><span>Grafana</span><span>Uptime Kuma</span><span>Gitea</span><span>GNS3</span></div>
             <div class="card-links">
-              <a href="https://github.com/YassinKamal345" target="_blank" rel="noopener">GitHub →</a>
-              <a class="disabled" data-i18n="proj.soon">Docs on Notion</a>
+              <span class="note-lock" data-i18n="proj.soon">🔒 Private infra repo · technical docs available on request</span>
             </div>
           </div>
           <!-- mini architecture diagram -->
@@ -539,8 +552,8 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
         <div class="skill-cat" style="margin-top:28px"><h4 data-i18n="skills.langs">Languages</h4></div>
         <div class="langs" style="margin-top:0">
           <div class="lang-item"><div class="fl">🇪🇸</div><div class="nm" data-i18n="lang.es">Spanish</div><div class="lv" data-i18n="lang.native">Native</div></div>
-          <div class="lang-item"><div class="fl">🏴󠁥󠁳󠁣󠁴󠁿</div><div class="nm" data-i18n="lang.ca">Catalan</div><div class="lv" data-i18n="lang.native">Native</div></div>
-          <div class="lang-item"><div class="fl">🇬🇧</div><div class="nm" data-i18n="lang.en">English</div><div class="lv">C1</div></div>
+          <div class="lang-item"><div class="fl"><span class="senyera" role="img" aria-label="Catalonia"></span></div><div class="nm" data-i18n="lang.ca">Catalan</div><div class="lv" data-i18n="lang.native">Native</div></div>
+          <div class="lang-item"><div class="fl">🇬🇧</div><div class="nm" data-i18n="lang.en">English</div><div class="lv">B2</div></div>
           <div class="lang-item"><div class="fl">🇫🇷</div><div class="nm" data-i18n="lang.fr">French</div><div class="lv">B2</div></div>
         </div>
       </div>
@@ -598,7 +611,7 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
 <footer>
   <div class="wrap">
     <div class="brand" style="display:flex;align-items:center;gap:10px"><span class="dot"></span><span>yassin<span style="color:var(--neon)">.kamal</span></span></div>
-    <div data-i18n="footer.made">Built with HTML, CSS &amp; JavaScript · © <span id="year"></span> Yassin Kamal</div>
+    <div><span data-i18n="footer.made">Built with HTML, CSS &amp; JavaScript</span> · © <span id="year"></span> Yassin Kamal</div>
   </div>
 </footer>
 
@@ -610,14 +623,14 @@ const I18N = {
     "hero.status":"Available for internships & junior roles","hero.hi":"Hi, I'm",
     "hero.bio":"Systems administration student turning curiosity into offensive security skills. I build tools, break things in the lab, and learn by doing.",
     "hero.cta2":"Get in touch",
-    "stat.projects":"Public projects","stat.cert":"Certification","stat.langs":"Languages","stat.learn":"Learning mode",
+    "stat.projects":"Projects","chip.loc":"📍 Barcelona, Spain","chip.study":"🎓 ASIX · final year","chip.focus":"🛡️ Offensive security","stat.cert":"Certification","stat.langs":"Languages","stat.learn":"VLANs in my lab",
     "about.eyebrow":"whoami","about.title":"A bit <b>about me</b>",
     "about.p1":"I'm a <b>systems administration (ASIX) student</b> based in Barcelona, finishing my degree this year. My goal is clear: become a <b>penetration tester</b>.",
     "about.p2":"Right now I'm sharpening my fundamentals — networking, Linux, scripting and the core offensive tooling — before going after more certifications. I love the mix of <b>systems and hacking</b>: understanding how infrastructure works and then learning how to break and defend it.",
     "about.p3":"I come from a business & technology background (Baccalauréat STMG, two years at UAB), which gives me a practical, product-minded view of IT. Today I apply it daily as an <b>IT Support Intern at Ukio</b>.",
     "proj.eyebrow":"ls -la ~/projects","proj.title":"Things I've <b>built</b>",
     "proj.lead":"A mix of offensive-security tooling, scripting and web — built to learn, documented to share.",
-    "proj.featured":"★ Featured · ASIX final project","proj.soon":"Docs on Notion","proj.live":"Live demo →",
+    "proj.featured":"★ Featured · ASIX final project","proj.soon":"🔒 Private infra repo · technical docs available on request","proj.live":"Live demo →",
     "proj.lab.t":"— self-hosted infrastructure, no subscriptions",
     "proj.lab.d":"A fictional company selling a mini-PC \"box\" so customers run their own services at home with zero subscriptions: AdGuard, in-house apps and a WireGuard VPN back to HQ. We built the headquarters as a lab on Proxmox, in an isolated virtual network.",
     "proj.lab.l1":"<b>OPNsense</b> firewall with <b>6 VLANs</b>, DNS, DHCP and a reverse proxy",
@@ -646,21 +659,21 @@ const I18N = {
     "path.bac.t":"Baccalauréat — STMG","path.bac.o":"Science & Technology of Management",
     "contact.eyebrow":"./connect","contact.l1":"Let's","contact.l2":"build & break","contact.l3":"things together",
     "contact.sub":"Open to internships, junior pentesting / IT roles and good conversations about security.",
-    "footer.made":"Built with HTML, CSS & JavaScript · ©"
+    "footer.made":"Built with HTML, CSS & JavaScript"
   },
   es:{
     "nav.about":"Sobre mí","nav.projects":"Proyectos","nav.skills":"Skills","nav.path":"Trayectoria","nav.contact":"Contacto",
     "hero.status":"Disponible para prácticas y puestos junior","hero.hi":"Hola, soy",
     "hero.bio":"Estudiante de administración de sistemas convirtiendo la curiosidad en habilidades de seguridad ofensiva. Creo herramientas, rompo cosas en el laboratorio y aprendo haciendo.",
     "hero.cta2":"Hablemos",
-    "stat.projects":"Proyectos públicos","stat.cert":"Certificación","stat.langs":"Idiomas","stat.learn":"Modo aprendizaje",
+    "stat.projects":"Proyectos","chip.loc":"📍 Barcelona, España","chip.study":"🎓 ASIX · último año","chip.focus":"🛡️ Seguridad ofensiva","stat.cert":"Certificación","stat.langs":"Idiomas","stat.learn":"VLANs en mi lab",
     "about.eyebrow":"whoami","about.title":"Un poco <b>sobre mí</b>",
     "about.p1":"Soy <b>estudiante de administración de sistemas (ASIX)</b> en Barcelona y termino el grado este año. Mi objetivo es claro: ser <b>pentester</b>.",
     "about.p2":"Ahora mismo estoy reforzando mis fundamentos — redes, Linux, scripting y las herramientas ofensivas clave — antes de ir a por más certificaciones. Me encanta la mezcla de <b>sistemas y hacking</b>: entender cómo funciona la infraestructura y luego aprender a romperla y defenderla.",
     "about.p3":"Vengo de un perfil de empresa y tecnología (Baccalauréat STMG, dos años en la UAB), lo que me da una visión práctica y orientada al producto. Hoy lo aplico cada día como <b>IT Support Intern en Ukio</b>.",
     "proj.eyebrow":"ls -la ~/proyectos","proj.title":"Cosas que he <b>construido</b>",
     "proj.lead":"Una mezcla de tooling de seguridad ofensiva, scripting y web — hechos para aprender, documentados para compartir.",
-    "proj.featured":"★ Destacado · Proyecto final ASIX","proj.soon":"Docs en Notion","proj.live":"Demo en vivo →",
+    "proj.featured":"★ Destacado · Proyecto final ASIX","proj.soon":"🔒 Repo de infra privado · documentación técnica bajo petición","proj.live":"Demo en vivo →",
     "proj.lab.t":"— infraestructura self-hosted, sin suscripciones",
     "proj.lab.d":"Una empresa ficticia que vende una \"caja\" (mini PC) para que el cliente tenga sus servicios en casa sin pagar suscripciones: AdGuard, apps propias y VPN WireGuard hasta la sede. Montamos la sede central como laboratorio en Proxmox, en una red virtual aislada.",
     "proj.lab.l1":"Firewall <b>OPNsense</b> con <b>6 VLANs</b>, DNS, DHCP y proxy inverso",
@@ -689,7 +702,7 @@ const I18N = {
     "path.bac.t":"Baccalauréat — STMG","path.bac.o":"Ciencias y Tecnologías de la Gestión",
     "contact.eyebrow":"./conectar","contact.l1":"Vamos a","contact.l2":"construir y romper","contact.l3":"cosas juntos",
     "contact.sub":"Abierto a prácticas, puestos junior de pentesting / IT y buenas conversaciones sobre seguridad.",
-    "footer.made":"Hecho con HTML, CSS y JavaScript · ©"
+    "footer.made":"Hecho con HTML, CSS y JavaScript"
   }
 };
 
@@ -702,7 +715,7 @@ function applyLang(lang){
     if(I18N[lang][k]!==undefined) el.innerHTML = I18N[lang][k];
   });
   document.querySelectorAll('.lang-toggle button').forEach(b=>{
-    b.classList.toggle('active', b.dataset.lang===lang);
+    b.classList.toggle('active', b.dataset.lang===lang); b.setAttribute('aria-pressed', b.dataset.lang===lang);
   });
   buildTyped(); // refresh roles
   try{ localStorage.setItem('lang',lang); }catch(e){}
