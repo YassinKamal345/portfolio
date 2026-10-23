@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yassin Kamal — Aspiring Pentester</title>
+<meta name="description" content="Yassin Kamal — Systems administration student and aspiring penetration tester. Projects, skills and certifications in offensive security and IT." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ===================== TOKENS ===================== */
+:root{
+  --bg:#070a0f;
+  --bg-2:#0b1018;
+  --panel:#0e141d;
+  --panel-2:#121a26;
+  --line:rgba(120,255,214,.14);
+  --line-2:rgba(255,255,255,.07);
+  --txt:#e7edf3;
+  --muted:#8a99ab;
+  --muted-2:#5f6e80;
+  --neon:#39ff14;        /* hacker green */
+  --neon-soft:#7CFFB2;
+  --cyan:#22d3ee;
+  --violet:#a78bfa;
+  --amber:#ffb454;
+  --radius:18px;
+  --maxw:1120px;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'Space Grotesk',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--txt);
+  font-family:var(--sans);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{ /* subtle grid + glow background */
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(900px 600px at 80% -10%, rgba(57,255,20,.10), transparent 60%),
+    radial-gradient(700px 500px at 0% 20%, rgba(34,211,238,.08), transparent 60%),
+    linear-gradient(180deg,#070a0f, #080c12 60%, #070a0f);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;opacity:.35;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(circle at 50% 10%, #000 20%, transparent 75%);
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--neon);color:#021}
+
+/* ===================== LAYOUT ===================== */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+section{padding:96px 0;position:relative}
+.eyebrow{
+  font-family:var(--mono);color:var(--neon);font-size:.8rem;letter-spacing:.18em;
+  text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--neon);display:inline-block}
+h2.title{font-size:clamp(1.8rem,4vw,2.9rem);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+h2.title b{color:var(--neon)}
+.lead{color:var(--muted);max-width:620px;margin-top:14px;font-size:1.03rem}
+
+/* ===================== NAV ===================== */
+header.nav{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(12px);
+  background:rgba(7,10,15,.72);
+  border-bottom:1px solid var(--line-2);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{font-family:var(--mono);font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--neon);box-shadow:0 0 12px var(--neon);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+.brand span{color:var(--neon)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:.92rem;color:var(--muted);transition:.2s;font-weight:500}
+.nav-links a:hover{color:var(--neon)}
+.nav-actions{display:flex;gap:12px;align-items:center}
+.lang-toggle{
+  font-family:var(--mono);font-size:.78rem;border:1px solid var(--line);
+  border-radius:999px;overflow:hidden;display:flex;
+}
+.lang-toggle button{
+  background:transparent;color:var(--muted);border:0;padding:7px 12px;cursor:pointer;font-family:var(--mono);transition:.2s;
+}
+.lang-toggle button.active{background:var(--neon);color:#021;font-weight:700}
+.burger{display:none;background:transparent;border:1px solid var(--line-2);border-radius:10px;padding:8px 10px;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:var(--txt);margin:4px 0;transition:.25s}
+
+/* ===================== HERO ===================== */
+.hero{padding:70px 0 70px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.status-chip{
+  display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.78rem;
+  color:var(--neon-soft);border:1px solid var(--line);background:rgba(57,255,20,.05);
+  padding:7px 14px;border-radius:999px;margin-bottom:22px;
+}
+.status-chip .live{width:8px;height:8px;border-radius:50%;background:var(--neon);box-shadow:0 0 10px var(--neon);animation:pulse 1.6s infinite}
+.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.02;font-weight:700;letter-spacing:-.03em}
+.hero h1 .grad{
+  background:linear-gradient(120deg,var(--neon),var(--cyan) 60%,var(--violet));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.typed-role{font-family:var(--mono);color:var(--cyan);font-size:clamp(1rem,2.4vw,1.4rem);margin-top:12px;min-height:1.6em}
+.typed-role .cursor{color:var(--neon);animation:blink 1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p.bio{color:var(--muted);margin-top:20px;max-width:520px;font-size:1.05rem}
+.hero-cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.btn{
+  font-family:var(--mono);font-size:.9rem;font-weight:600;padding:13px 22px;border-radius:12px;
+  cursor:pointer;transition:.22s;border:1px solid transparent;display:inline-flex;align-items:center;gap:9px;
+}
+.btn-primary{background:var(--neon);color:#021;box-shadow:0 8px 30px rgba(57,255,20,.25)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 38px rgba(57,255,20,.4)}
+.btn-ghost{border-color:var(--line);color:var(--txt);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--neon);color:var(--neon)}
+.hero-socials{display:flex;gap:16px;margin-top:28px}
+.hero-socials a{color:var(--muted);transition:.2s}
+.hero-socials a:hover{color:var(--neon);transform:translateY(-2px)}
+
+/* terminal card */
+.terminal{
+  background:linear-gradient(180deg,#0c121b,#0a0f17);
+  border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(57,255,20,.04);
+  position:relative;
+}
+.terminal::before{content:"";position:absolute;inset:0;border-radius:16px;padding:1px;
+  background:linear-gradient(120deg,rgba(57,255,20,.4),transparent 40%,rgba(34,211,238,.3));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.5}
+.term-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line-2);background:rgba(255,255,255,.02)}
+.term-bar .c{width:12px;height:12px;border-radius:50%}
+.c.r{background:#ff5f56}.c.y{background:#ffbd2e}.c.g{background:#27c93f}
+.term-bar .path{margin-left:10px;font-family:var(--mono);font-size:.78rem;color:var(--muted-2)}
+.term-body{padding:20px;font-family:var(--mono);font-size:.86rem;min-height:300px}
+.term-line{margin-bottom:8px;white-space:pre-wrap;word-break:break-word}
+.term-line .p{color:var(--neon)}
+.term-line .arg{color:var(--cyan)}
+.term-out{color:var(--muted)}
+.term-out b{color:var(--txt)}
+.badge-inline{color:var(--amber)}
+
+/* floating shapes */
+.shape{position:absolute;border-radius:30%;filter:blur(2px);opacity:.5;z-index:-1;animation:float 9s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-22px) rotate(10deg)}}
+
+/* ===================== STAT STRIP ===================== */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:10px}
+.stat{border:1px solid var(--line-2);background:var(--panel);border-radius:14px;padding:20px;text-align:center;transition:.25s}
+.stat:hover{border-color:var(--line);transform:translateY(-3px)}
+.stat .n{font-family:var(--mono);font-size:1.9rem;font-weight:700;color:var(--neon)}
+.stat .l{color:var(--muted);font-size:.82rem;margin-top:4px}
+
+/* ===================== ABOUT ===================== */
+.about-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:46px;align-items:center}
+.photo-frame{position:relative;max-width:360px}
+.photo-frame img{border-radius:18px;border:1px solid var(--line);filter:grayscale(.15) contrast(1.05)}
+.photo-frame::after{content:"";position:absolute;inset:-10px;border:1px solid var(--line);border-radius:22px;z-index:-1}
+.photo-tag{position:absolute;bottom:-14px;left:16px;font-family:var(--mono);font-size:.74rem;color:var(--neon);
+  background:var(--bg-2);border:1px solid var(--line);padding:6px 12px;border-radius:8px}
+.about-body p{color:var(--muted);margin-bottom:16px}
+.about-body p b{color:var(--txt)}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:8px}
+.chip{font-family:var(--mono);font-size:.78rem;color:var(--neon-soft);border:1px solid var(--line);
+  background:rgba(57,255,20,.04);padding:6px 12px;border-radius:999px}
+
+/* ===================== PROJECTS ===================== */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:40px}
+.card{
+  background:var(--panel);border:1px solid var(--line-2);border-radius:var(--radius);
+  padding:26px;position:relative;overflow:hidden;transition:.28s;
+}
+.card:hover{transform:translateY(-5px);border-color:var(--line);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--neon),var(--cyan));transform:scaleX(0);transform-origin:left;transition:.3s}
+.card:hover::before{transform:scaleX(1)}
+.card .ic{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  background:rgba(57,255,20,.08);border:1px solid var(--line);font-size:1.3rem;margin-bottom:16px}
+.card.feat{grid-column:span 2;background:linear-gradient(135deg,#0e1620,#0b1018)}
+.card .ptag{position:absolute;top:22px;right:22px;font-family:var(--mono);font-size:.7rem;
+  color:var(--amber);border:1px solid rgba(255,180,84,.3);padding:4px 9px;border-radius:999px}
+.card h3{font-size:1.25rem;font-weight:600;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.94rem;margin-bottom:16px}
+.tech{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.tech span{font-family:var(--mono);font-size:.74rem;color:var(--cyan);background:rgba(34,211,238,.07);
+  border:1px solid rgba(34,211,238,.18);padding:4px 10px;border-radius:7px}
+.card-links{display:flex;gap:18px;font-family:var(--mono);font-size:.84rem}
+.card-links a{color:var(--neon);display:inline-flex;align-items:center;gap:6px;transition:.2s}
+.card-links a:hover{gap:10px}
+.card-links a.disabled{color:var(--muted-2);pointer-events:none}
+
+.feat-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:center}
+.sub-t{color:var(--muted);font-weight:500;font-size:.95rem}
+.feat-list{list-style:none;margin:0 0 18px}
+.feat-list li{color:var(--muted);font-size:.92rem;padding:5px 0 5px 22px;position:relative}
+.feat-list li::before{content:"›";position:absolute;left:4px;color:var(--neon);font-weight:700}
+.feat-list b{color:var(--txt);font-weight:600}
+.arch{font-family:var(--mono);font-size:.78rem;display:flex;flex-direction:column;align-items:center;gap:0;
+  border:1px dashed var(--line);border-radius:16px;padding:22px 18px;background:rgba(57,255,20,.02)}
+.arch-node{width:100%;text-align:center;border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--panel-2);font-weight:600}
+.arch-node small{display:block;color:var(--muted);font-weight:400;font-size:.7rem;margin-top:2px}
+.arch-node.home{border-color:rgba(34,211,238,.35)}
+.arch-node.fw{border-color:var(--neon);box-shadow:0 0 22px rgba(57,255,20,.15)}
+.arch-link{height:46px;width:2px;background:repeating-linear-gradient(180deg,var(--cyan) 0 6px,transparent 6px 11px);
+  position:relative;animation:flow 1s linear infinite;background-size:2px 22px}
+@keyframes flow{to{background-position:0 22px}}
+.arch-link span{position:absolute;left:12px;top:50%;transform:translateY(-50%);white-space:nowrap;color:var(--cyan);font-size:.7rem}
+.arch-vlans{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%;margin-top:14px;position:relative}
+.arch-vlans::before{content:"";position:absolute;top:-14px;left:50%;width:2px;height:14px;background:var(--neon)}
+.vl{border:1px solid var(--line-2);background:var(--bg-2);border-radius:8px;padding:7px 4px;text-align:center;font-size:.68rem;color:var(--neon-soft);transition:.2s}
+.vl:hover{border-color:var(--neon)}
+.arch-foot{margin-top:14px;color:var(--muted);font-size:.7rem}
+.arch-foot b{color:var(--amber);font-weight:500}
+
+/* ===================== SKILLS ===================== */
+.skills-wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;margin-top:40px;align-items:start}
+.skill-cat{margin-bottom:26px}
+.skill-cat h4{font-family:var(--mono);font-size:.82rem;color:var(--muted);text-transform:uppercase;
+  letter-spacing:.1em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.skill-cat h4::before{content:"▹";color:var(--neon)}
+.tools{display:flex;flex-wrap:wrap;gap:10px}
+.tool{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.85rem;
+  border:1px solid var(--line-2);background:var(--panel);padding:9px 14px;border-radius:10px;transition:.22s}
+.tool:hover{border-color:var(--neon);color:var(--neon);transform:translateY(-2px)}
+.tool .d{width:7px;height:7px;border-radius:50%;background:var(--neon)}
+.cert-card{background:var(--panel);border:1px solid var(--line-2);border-radius:14px;padding:20px;margin-bottom:14px;transition:.25s}
+.cert-card:hover{border-color:var(--line)}
+.cert-card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cert-card h5{font-size:1.02rem;font-weight:600}
+.cert-card .issuer{color:var(--muted);font-size:.85rem;margin-top:2px}
+.cert-state{font-family:var(--mono);font-size:.7rem;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.cert-state.done{color:var(--neon);border:1px solid var(--line);background:rgba(57,255,20,.05)}
+.cert-state.wip{color:var(--amber);border:1px solid rgba(255,180,84,.3);background:rgba(255,180,84,.05)}
+
+/* ===================== TIMELINE ===================== */
+.timeline{position:relative;margin-top:40px;padding-left:28px}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(180deg,var(--neon),transparent)}
+.tl-item{position:relative;padding-bottom:34px}
+.tl-item::before{content:"";position:absolute;left:-28px;top:4px;width:16px;height:16px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--neon);box-shadow:0 0 12px rgba(57,255,20,.5)}
+.tl-item.now::before{background:var(--neon)}
+.tl-item .when{font-family:var(--mono);font-size:.78rem;color:var(--cyan);margin-bottom:4px}
+.tl-item h4{font-size:1.1rem;font-weight:600}
+.tl-item .org{color:var(--muted);font-size:.9rem}
+.tl-item p{color:var(--muted);font-size:.9rem;margin-top:6px;max-width:560px}
+.tag-now{font-family:var(--mono);font-size:.68rem;color:var(--neon);border:1px solid var(--line);
+  padding:2px 8px;border-radius:999px;margin-left:8px}
+
+/* languages */
+.langs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
+.lang-item{text-align:center;border:1px solid var(--line-2);background:var(--panel);border-radius:12px;padding:16px}
+.lang-item .fl{font-size:1.6rem}
+.lang-item .nm{font-weight:600;margin-top:6px;font-size:.95rem}
+.lang-item .lv{color:var(--muted);font-size:.78rem;font-family:var(--mono)}
+
+/* ===================== CONTACT ===================== */
+.contact{text-align:center}
+.contact .big{font-size:clamp(2rem,5vw,3.4rem);font-weight:700;letter-spacing:-.02em;margin:18px 0}
+.contact .big b{color:var(--neon)}
+.contact-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+
+footer{border-top:1px solid var(--line-2);padding:30px 0;text-align:center;color:var(--muted-2);font-family:var(--mono);font-size:.82rem}
+footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ===================== RESPONSIVE ===================== */
+@media(max-width:900px){
+  .hero-grid,.about-grid,.skills-wrap{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr}
+  .card .ptag{position:static;display:inline-block;margin-bottom:14px}
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav-links.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;
+    background:rgba(7,10,15,.97);padding:20px 22px;gap:18px;border-bottom:1px solid var(--line)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .proj-grid{grid-template-columns:1fr}
+  .card.feat{grid-column:span 1}
+  .langs{grid-template-columns:repeat(2,1fr)}
+  section{padding:70px 0}
+  .photo-frame{margin:0 auto 20px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand"><span class="dot"></span><span style="color:var(--txt)">yassin<span>.kamal</span></span></a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#path" data-i18n="nav.path">Path</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="es">ES</button>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status-chip"><span class="live"></span><span data-i18n="hero.status">Available for internships &amp; junior roles</span></div>
+      <h1><span data-i18n="hero.hi">Hi, I'm</span> <span class="grad">Yassin Kamal</span></h1>
+      <div class="typed-role"><span id="typed"></span><span class="cursor">▋</span></div>
+      <p class="bio" data-i18n="hero.bio">Systems administration student turning curiosity into offensive security skills. I build tools, break things in the lab, and learn by doing.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">./view_projects <span aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="#contact" data-i18n="hero.cta2">Get in touch</a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/YassinKamal345" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.57.1.78-.25.78-.55v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.48.11-3.08 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.6.23 2.78.11 3.08.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.28 5.69.42.36.79 1.07.79 2.16v3.2c0 .31.21.66.79.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/yassin-kamal-simo/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+        <a href="mailto:yassin.kamal@ukio.com" aria-label="Email" title="Email">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- terminal -->
+    <div class="terminal reveal">
+      <div class="term-bar">
+        <span class="c r"></span><span class="c y"></span><span class="c g"></span>
+        <span class="path">yassin@portfolio: ~</span>
+      </div>
+      <div class="term-body" id="term"></div>
+    </div>
+  </div>
+
+  <!-- stats -->
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><div class="n">4+</div><div class="l" data-i18n="stat.projects">Public projects</div></div>
+      <div class="stat"><div class="n">1</div><div class="l" data-i18n="stat.cert">Certification</div></div>
+      <div class="stat"><div class="n">4</div><div class="l" data-i18n="stat.langs">Languages</div></div>
+      <div class="stat"><div class="n">∞</div><div class="l" data-i18n="stat.learn">Learning mode</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="about.eyebrow">whoami</div>
+    <h2 class="title" data-i18n="about.title">A bit <b>about me</b></h2>
+    <div class="about-grid" style="margin-top:40px">
+      <div class="photo-frame reveal">
+        <img src="img/profile.jpg" alt="Yassin Kamal" />
+        <span class="photo-tag">./yassin --whoami</span>
+      </div>
+      <div class="about-body reveal">
+        <p data-i18n="about.p1">I'm a <b>systems administration (ASIX) student</b> based in Barcelona, finishing my degree this year. My goal is clear: become a <b>penetration tester</b>.</p>
+        <p data-i18n="about.p2">Right now I'm sharpening my fundamentals — networking, Linux, scripting and the core offensive tooling — before going after more certifications. I love the mix of <b>systems and hacking</b>: understanding how infrastructure works and then learning how to break and defend it.</p>
+        <p data-i18n="about.p3">I come from a business &amp; technology background (Baccalauréat STMG, two years at UAB), which gives me a practical, product-minded view of IT. Today I apply it daily as an <b>IT Support Intern at Ukio</b>.</p>
+        <div class="chips">
+          <span class="chip">📍 Barcelona, Spain</span>
+          <span class="chip">🎓 ASIX · final year</span>
+          <span class="chip">🛡️ Offensive security</span>
+          <span class="chip">💼 IT Support @ Ukio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="proj.eyebrow">ls -la ~/projects</div>
+    <h2 class="title" data-i18n="proj.title">Things I've <b>built</b></h2>
+    <p class="lead" data-i18n="proj.lead">A mix of offensive-security tooling, scripting and web — built to learn, documented to share.</p>
+
+    <div class="proj-grid">
+
+      <!-- FEATURED: Homelab -->
+      <article class="card feat reveal">
+        <span class="ptag" data-i18n="proj.featured">★ Featured · ASIX final project</span>
+        <div class="feat-grid">
+          <div>
+            <div class="ic">📦</div>
+            <h3>NoSub <span class="sub-t" data-i18n="proj.lab.t">— self-hosted infrastructure, no subscriptions</span></h3>
+            <p data-i18n="proj.lab.d">A fictional company selling a mini-PC "box" so customers run their own services at home with zero subscriptions: AdGuard, in-house apps and a WireGuard VPN back to HQ. We built the headquarters as a lab on Proxmox, in an isolated virtual network.</p>
+            <ul class="feat-list">
+              <li data-i18n="proj.lab.l1"><b>OPNsense</b> firewall with <b>6 VLANs</b>, DNS, DHCP and a reverse proxy</li>
+              <li data-i18n="proj.lab.l2"><b>PostgreSQL</b>, <b>Gitea</b> and monitoring with <b>Grafana</b> + <b>Uptime Kuma</b></li>
+              <li data-i18n="proj.lab.l3">Everything deployed with <b>Ansible</b> (nosub-infra) — rebuilt from scratch in minutes</li>
+              <li data-i18n="proj.lab.l4">Hardening &amp; closure: <b>TOTP on OPNsense</b>, risk analysis, a power-outage drill and a <b>GNS3</b> rehearsal</li>
+            </ul>
+            <div class="tech"><span>Proxmox</span><span>OPNsense</span><span>VLANs</span><span>WireGuard</span><span>Ansible</span><span>PostgreSQL</span><span>Grafana</span><span>Uptime Kuma</span><span>Gitea</span><span>GNS3</span></div>
+            <div class="card-links">
+              <a href="https://github.com/YassinKamal345" target="_blank" rel="noopener">GitHub →</a>
+              <a class="disabled" data-i18n="proj.soon">Docs on Notion</a>
+            </div>
+          </div>
+          <!-- mini architecture diagram -->
+          <div class="arch" aria-hidden="true">
+            <div class="arch-node home">🏠 <span data-i18n="arch.box">Customer box</span><small>AdGuard · apps</small></div>
+            <div class="arch-link"><span>WireGuard VPN</span></div>
+            <div class="arch-node fw">🛡️ OPNsense<small>6 VLANs · TOTP</small></div>
+            <div class="arch-vlans">
+              <div class="vl">DNS/DHCP</div><div class="vl">Proxy</div><div class="vl">PostgreSQL</div>
+              <div class="vl">Gitea</div><div class="vl">Grafana</div><div class="vl">Uptime Kuma</div>
+            </div>
+            <div class="arch-foot">⚙️ Proxmox · <b>ansible-playbook site.yml</b></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Keylogger -->
+      <article class="card reveal">
+        <div class="ic">⌨️</div>
+        <h3 data-i18n="proj.key.t">Python Keylogger <span style="font-size:.7rem;color:var(--amber)">· edu</span></h3>
+        <p data-i18n="proj.key.d">An educational proof-of-concept exploring how input-capture malware works. Built in a controlled environment to understand the technique — and showed me just how much you can do with Python for security.</p>
+        <div class="tech"><span>Python</span><span>Sockets</span><span>PoC</span></div>
+        <div class="card-links"><a href="https://github.com/YassinKamal345/Python_Keylogger" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+
+      <!-- Multitool -->
+      <article class="card reveal">
+        <div class="ic">🧰</div>
+        <h3 data-i18n="proj.multi.t">Windows Multitool</h3>
+        <p data-i18n="proj.multi.d">A lightweight Batch menu for Windows: type a number and it launches the matching program or shortcut. A clean, fast way to bundle everyday tools behind one interface.</p>
+        <div class="tech"><span>Batch</span><span>Windows</span><span>Automation</span></div>
+        <div class="card-links"><a href="https://github.com/YassinKamal345/Multitool" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+
+      <!-- CV Website -->
+      <article class="card reveal">
+        <div class="ic">📄</div>
+        <h3 data-i18n="proj.cv.t">CV Website</h3>
+        <p data-i18n="proj.cv.d">My résumé rebuilt as a responsive HTML/CSS site and deployed on Vercel — semantic markup, mobile-first, print-friendly. The predecessor of this very portfolio.</p>
+        <div class="tech"><span>HTML5</span><span>CSS3</span><span>Vercel</span></div>
+        <div class="card-links">
+          <a href="https://cv-html-css-five.vercel.app" target="_blank" rel="noopener" data-i18n="proj.live">Live demo →</a>
+          <a href="https://github.com/YassinKamal345/CV_html-css" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </article>
+
+      <!-- Travel dashboard -->
+      <article class="card reveal">
+        <div class="ic">🌍</div>
+        <h3 data-i18n="proj.travel.t">Travel Dashboard</h3>
+        <p data-i18n="proj.travel.d">A JavaScript dashboard for different cities showing live weather and a built-in currency converter. A fun dive into consuming APIs and dynamic front-end state.</p>
+        <div class="tech"><span>JavaScript</span><span>APIs</span><span>CSS</span></div>
+        <div class="card-links"><a href="https://github.com/YassinKamal345/Travel-Dashboard" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="skills.eyebrow">cat skills.txt</div>
+    <h2 class="title" data-i18n="skills.title">Skills &amp; <b>certifications</b></h2>
+    <div class="skills-wrap">
+      <div>
+        <div class="skill-cat">
+          <h4 data-i18n="skills.offensive">Offensive security</h4>
+          <div class="tools">
+            <span class="tool"><span class="d"></span>Nmap</span>
+            <span class="tool"><span class="d"></span>Metasploit</span>
+            <span class="tool"><span class="d"></span>Burp Suite</span>
+            <span class="tool"><span class="d"></span>Wireshark</span>
+            <span class="tool"><span class="d"></span>John the Ripper</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <h4 data-i18n="skills.sys">Systems &amp; networking</h4>
+          <div class="tools">
+            <span class="tool"><span class="d"></span>Linux</span>
+            <span class="tool"><span class="d"></span>Windows</span>
+            <span class="tool"><span class="d"></span>Proxmox</span>
+            <span class="tool"><span class="d"></span>OPNsense</span>
+            <span class="tool"><span class="d"></span>VLANs</span>
+            <span class="tool"><span class="d"></span>WireGuard</span>
+            <span class="tool"><span class="d"></span>Ansible</span>
+            <span class="tool"><span class="d"></span>Grafana</span>
+            <span class="tool"><span class="d"></span>PostgreSQL</span>
+            <span class="tool"><span class="d"></span>MySQL</span>
+            <span class="tool"><span class="d"></span>GNS3</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <h4 data-i18n="skills.dev">Scripting &amp; dev</h4>
+          <div class="tools">
+            <span class="tool"><span class="d"></span>Python</span>
+            <span class="tool"><span class="d"></span>Bash</span>
+            <span class="tool"><span class="d"></span>PHP</span>
+            <span class="tool"><span class="d"></span>HTML5</span>
+            <span class="tool"><span class="d"></span>CSS3</span>
+            <span class="tool"><span class="d"></span>JavaScript</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-cat"><h4 data-i18n="skills.certs">Certifications</h4></div>
+        <div class="cert-card reveal">
+          <div class="top">
+            <div><h5>Google Cybersecurity</h5><div class="issuer">Google · Professional Certificate</div></div>
+            <span class="cert-state done" data-i18n="cert.done">✓ Earned</span>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="top">
+            <div><h5>CompTIA Security+</h5><div class="issuer">CompTIA</div></div>
+            <span class="cert-state wip" data-i18n="cert.wip">◴ Next up</span>
+          </div>
+        </div>
+        <div class="skill-cat" style="margin-top:28px"><h4 data-i18n="skills.langs">Languages</h4></div>
+        <div class="langs" style="margin-top:0">
+          <div class="lang-item"><div class="fl">🇪🇸</div><div class="nm" data-i18n="lang.es">Spanish</div><div class="lv" data-i18n="lang.native">Native</div></div>
+          <div class="lang-item"><div class="fl">🏴󠁥󠁳󠁣󠁴󠁿</div><div class="nm" data-i18n="lang.ca">Catalan</div><div class="lv" data-i18n="lang.native">Native</div></div>
+          <div class="lang-item"><div class="fl">🇬🇧</div><div class="nm" data-i18n="lang.en">English</div><div class="lv">C1</div></div>
+          <div class="lang-item"><div class="fl">🇫🇷</div><div class="nm" data-i18n="lang.fr">French</div><div class="lv">B2</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATH -->
+<section id="path">
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="path.eyebrow">history | tail</div>
+    <h2 class="title" data-i18n="path.title">Education &amp; <b>experience</b></h2>
+    <div class="timeline">
+      <div class="tl-item now reveal">
+        <div class="when">2026 — <span data-i18n="path.present">Present</span></div>
+        <h4 data-i18n="path.ukio.t">IT Support Intern <span class="tag-now" data-i18n="path.current">current</span></h4>
+        <div class="org">Ukio · Barcelona</div>
+        <p data-i18n="path.ukio.d">Supporting day-to-day IT operations: user support, hardware and software troubleshooting, and keeping systems running smoothly across the team.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="when">2024 — 2026</div>
+        <h4 data-i18n="path.asix.t">Higher Diploma in Systems Administration (ASIX)</h4>
+        <div class="org" data-i18n="path.asix.o">Vocational training · final year</div>
+        <p data-i18n="path.asix.d">Networks, operating systems, servers, databases and security — the systems foundation I'm building my pentesting path on.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="when">2022 — 2024</div>
+        <h4 data-i18n="path.uab.t">Business &amp; Technology</h4>
+        <div class="org">Universitat Autònoma de Barcelona (UAB)</div>
+        <p data-i18n="path.uab.d">Two years bridging business and technology — a product and problem-solving mindset I carry into IT.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="when">— 2022</div>
+        <h4 data-i18n="path.bac.t">Baccalauréat — STMG</h4>
+        <div class="org" data-i18n="path.bac.o">Science &amp; Technology of Management</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center" data-i18n="contact.eyebrow">./connect</div>
+    <div class="big"><span data-i18n="contact.l1">Let's</span> <b data-i18n="contact.l2">build &amp; break</b> <span data-i18n="contact.l3">things together</span></div>
+    <p class="lead" style="margin:0 auto" data-i18n="contact.sub">Open to internships, junior pentesting / IT roles and good conversations about security.</p>
+    <div class="contact-actions">
+      <a class="btn btn-primary" href="mailto:yassin.kamal@ukio.com">yassin.kamal@ukio.com</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/yassin-kamal-simo/" target="_blank" rel="noopener">LinkedIn →</a>
+      <a class="btn btn-ghost" href="https://github.com/YassinKamal345" target="_blank" rel="noopener">GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand" style="display:flex;align-items:center;gap:10px"><span class="dot"></span><span>yassin<span style="color:var(--neon)">.kamal</span></span></div>
+    <div data-i18n="footer.made">Built with HTML, CSS &amp; JavaScript · © <span id="year"></span> Yassin Kamal</div>
+  </div>
+</footer>
+
+<script>
+/* ============ i18n ============ */
+const I18N = {
+  en:{
+    "nav.about":"About","nav.projects":"Projects","nav.skills":"Skills","nav.path":"Path","nav.contact":"Contact",
+    "hero.status":"Available for internships & junior roles","hero.hi":"Hi, I'm",
+    "hero.bio":"Systems administration student turning curiosity into offensive security skills. I build tools, break things in the lab, and learn by doing.",
+    "hero.cta2":"Get in touch",
+    "stat.projects":"Public projects","stat.cert":"Certification","stat.langs":"Languages","stat.learn":"Learning mode",
+    "about.eyebrow":"whoami","about.title":"A bit <b>about me</b>",
+    "about.p1":"I'm a <b>systems administration (ASIX) student</b> based in Barcelona, finishing my degree this year. My goal is clear: become a <b>penetration tester</b>.",
+    "about.p2":"Right now I'm sharpening my fundamentals — networking, Linux, scripting and the core offensive tooling — before going after more certifications. I love the mix of <b>systems and hacking</b>: understanding how infrastructure works and then learning how to break and defend it.",
+    "about.p3":"I come from a business & technology background (Baccalauréat STMG, two years at UAB), which gives me a practical, product-minded view of IT. Today I apply it daily as an <b>IT Support Intern at Ukio</b>.",
+    "proj.eyebrow":"ls -la ~/projects","proj.title":"Things I've <b>built</b>",
+    "proj.lead":"A mix of offensive-security tooling, scripting and web — built to learn, documented to share.",
+    "proj.featured":"★ Featured · ASIX final project","proj.soon":"Docs on Notion","proj.live":"Live demo →",
+    "proj.lab.t":"— self-hosted infrastructure, no subscriptions",
+    "proj.lab.d":"A fictional company selling a mini-PC \"box\" so customers run their own services at home with zero subscriptions: AdGuard, in-house apps and a WireGuard VPN back to HQ. We built the headquarters as a lab on Proxmox, in an isolated virtual network.",
+    "proj.lab.l1":"<b>OPNsense</b> firewall with <b>6 VLANs</b>, DNS, DHCP and a reverse proxy",
+    "proj.lab.l2":"<b>PostgreSQL</b>, <b>Gitea</b> and monitoring with <b>Grafana</b> + <b>Uptime Kuma</b>",
+    "proj.lab.l3":"Everything deployed with <b>Ansible</b> (nosub-infra) — rebuilt from scratch in minutes",
+    "proj.lab.l4":"Hardening &amp; closure: <b>TOTP on OPNsense</b>, risk analysis, a power-outage drill and a <b>GNS3</b> rehearsal",
+    "arch.box":"Customer box",
+    "proj.key.t":"Python Keylogger · edu",
+    "proj.key.d":"An educational proof-of-concept exploring how input-capture malware works. Built in a controlled environment to understand the technique — and showed me just how much you can do with Python for security.",
+    "proj.multi.t":"Windows Multitool",
+    "proj.multi.d":"A lightweight Batch menu for Windows: type a number and it launches the matching program or shortcut. A clean, fast way to bundle everyday tools behind one interface.",
+    "proj.cv.t":"CV Website",
+    "proj.cv.d":"My résumé rebuilt as a responsive HTML/CSS site and deployed on Vercel — semantic markup, mobile-first, print-friendly. The predecessor of this very portfolio.",
+    "proj.travel.t":"Travel Dashboard",
+    "proj.travel.d":"A JavaScript dashboard for different cities showing live weather and a built-in currency converter. A fun dive into consuming APIs and dynamic front-end state.",
+    "skills.eyebrow":"cat skills.txt","skills.title":"Skills & <b>certifications</b>",
+    "skills.offensive":"Offensive security","skills.sys":"Systems & networking","skills.dev":"Scripting & dev",
+    "skills.certs":"Certifications","skills.langs":"Languages",
+    "cert.done":"✓ Earned","cert.wip":"◴ Next up",
+    "lang.es":"Spanish","lang.ca":"Catalan","lang.en":"English","lang.fr":"French","lang.native":"Native",
+    "path.eyebrow":"history | tail","path.title":"Education & <b>experience</b>","path.present":"Present","path.current":"current",
+    "path.ukio.t":"IT Support Intern","path.ukio.d":"Supporting day-to-day IT operations: user support, hardware and software troubleshooting, and keeping systems running smoothly across the team.",
+    "path.asix.t":"Higher Diploma in Systems Administration (ASIX)","path.asix.o":"Vocational training · final year",
+    "path.asix.d":"Networks, operating systems, servers, databases and security — the systems foundation I'm building my pentesting path on.",
+    "path.uab.t":"Business & Technology","path.uab.d":"Two years bridging business and technology — a product and problem-solving mindset I carry into IT.",
+    "path.bac.t":"Baccalauréat — STMG","path.bac.o":"Science & Technology of Management",
+    "contact.eyebrow":"./connect","contact.l1":"Let's","contact.l2":"build & break","contact.l3":"things together",
+    "contact.sub":"Open to internships, junior pentesting / IT roles and good conversations about security.",
+    "footer.made":"Built with HTML, CSS & JavaScript · ©"
+  },
+  es:{
+    "nav.about":"Sobre mí","nav.projects":"Proyectos","nav.skills":"Skills","nav.path":"Trayectoria","nav.contact":"Contacto",
+    "hero.status":"Disponible para prácticas y puestos junior","hero.hi":"Hola, soy",
+    "hero.bio":"Estudiante de administración de sistemas convirtiendo la curiosidad en habilidades de seguridad ofensiva. Creo herramientas, rompo cosas en el laboratorio y aprendo haciendo.",
+    "hero.cta2":"Hablemos",
+    "stat.projects":"Proyectos públicos","stat.cert":"Certificación","stat.langs":"Idiomas","stat.learn":"Modo aprendizaje",
+    "about.eyebrow":"whoami","about.title":"Un poco <b>sobre mí</b>",
+    "about.p1":"Soy <b>estudiante de administración de sistemas (ASIX)</b> en Barcelona y termino el grado este año. Mi objetivo es claro: ser <b>pentester</b>.",
+    "about.p2":"Ahora mismo estoy reforzando mis fundamentos — redes, Linux, scripting y las herramientas ofensivas clave — antes de ir a por más certificaciones. Me encanta la mezcla de <b>sistemas y hacking</b>: entender cómo funciona la infraestructura y luego aprender a romperla y defenderla.",
+    "about.p3":"Vengo de un perfil de empresa y tecnología (Baccalauréat STMG, dos años en la UAB), lo que me da una visión práctica y orientada al producto. Hoy lo aplico cada día como <b>IT Support Intern en Ukio</b>.",
+    "proj.eyebrow":"ls -la ~/proyectos","proj.title":"Cosas que he <b>construido</b>",
+    "proj.lead":"Una mezcla de tooling de seguridad ofensiva, scripting y web — hechos para aprender, documentados para compartir.",
+    "proj.featured":"★ Destacado · Proyecto final ASIX","proj.soon":"Docs en Notion","proj.live":"Demo en vivo →",
+    "proj.lab.t":"— infraestructura self-hosted, sin suscripciones",
+    "proj.lab.d":"Una empresa ficticia que vende una \"caja\" (mini PC) para que el cliente tenga sus servicios en casa sin pagar suscripciones: AdGuard, apps propias y VPN WireGuard hasta la sede. Montamos la sede central como laboratorio en Proxmox, en una red virtual aislada.",
+    "proj.lab.l1":"Firewall <b>OPNsense</b> con <b>6 VLANs</b>, DNS, DHCP y proxy inverso",
+    "proj.lab.l2":"<b>PostgreSQL</b>, <b>Gitea</b> y monitorización con <b>Grafana</b> + <b>Uptime Kuma</b>",
+    "proj.lab.l3":"Todo desplegado con <b>Ansible</b> (nosub-infra) — se reconstruye desde cero en minutos",
+    "proj.lab.l4":"Seguridad y cierre: <b>TOTP en OPNsense</b>, análisis de riesgos, simulacro de corte de luz y ensayo en <b>GNS3</b>",
+    "arch.box":"Caja del cliente",
+    "proj.key.t":"Keylogger en Python · edu",
+    "proj.key.d":"Una prueba de concepto educativa para entender cómo funciona el malware de captura de teclas. Hecho en un entorno controlado para comprender la técnica — y me enseñó todo lo que se puede hacer con Python en seguridad.",
+    "proj.multi.t":"Multitool de Windows",
+    "proj.multi.d":"Un menú ligero en Batch para Windows: escribes un número y abre el programa o acceso directo correspondiente. Una forma rápida y limpia de agrupar herramientas del día a día.",
+    "proj.cv.t":"Web de CV",
+    "proj.cv.d":"Mi currículum convertido en una web responsive de HTML/CSS y desplegada en Vercel — HTML semántico, mobile-first y lista para imprimir. El predecesor de este mismo portfolio.",
+    "proj.travel.t":"Travel Dashboard",
+    "proj.travel.d":"Un dashboard en JavaScript de distintas ciudades con el tiempo en vivo y un conversor de divisas. Una inmersión divertida en consumir APIs y manejar estado dinámico en el front.",
+    "skills.eyebrow":"cat skills.txt","skills.title":"Skills y <b>certificaciones</b>",
+    "skills.offensive":"Seguridad ofensiva","skills.sys":"Sistemas y redes","skills.dev":"Scripting y dev",
+    "skills.certs":"Certificaciones","skills.langs":"Idiomas",
+    "cert.done":"✓ Obtenida","cert.wip":"◴ Siguiente",
+    "lang.es":"Español","lang.ca":"Catalán","lang.en":"Inglés","lang.fr":"Francés","lang.native":"Nativo",
+    "path.eyebrow":"history | tail","path.title":"Formación y <b>experiencia</b>","path.present":"Actualidad","path.current":"actual",
+    "path.ukio.t":"IT Support Intern","path.ukio.d":"Dando soporte a las operaciones de IT del día a día: ayuda a usuarios, resolución de incidencias de hardware y software, y mantener los sistemas funcionando para todo el equipo.",
+    "path.asix.t":"CFGS Administración de Sistemas (ASIX)","path.asix.o":"Formación profesional · último año",
+    "path.asix.d":"Redes, sistemas operativos, servidores, bases de datos y seguridad — la base de sistemas sobre la que construyo mi camino hacia el pentesting.",
+    "path.uab.t":"Empresa y Tecnología","path.uab.d":"Dos años uniendo empresa y tecnología — una mentalidad de producto y resolución de problemas que llevo a IT.",
+    "path.bac.t":"Baccalauréat — STMG","path.bac.o":"Ciencias y Tecnologías de la Gestión",
+    "contact.eyebrow":"./conectar","contact.l1":"Vamos a","contact.l2":"construir y romper","contact.l3":"cosas juntos",
+    "contact.sub":"Abierto a prácticas, puestos junior de pentesting / IT y buenas conversaciones sobre seguridad.",
+    "footer.made":"Hecho con HTML, CSS y JavaScript · ©"
+  }
+};
+
+let currentLang = 'en';
+function applyLang(lang){
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    if(I18N[lang][k]!==undefined) el.innerHTML = I18N[lang][k];
+  });
+  document.querySelectorAll('.lang-toggle button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.lang===lang);
+  });
+  buildTyped(); // refresh roles
+  try{ localStorage.setItem('lang',lang); }catch(e){}
+}
+document.querySelectorAll('.lang-toggle button').forEach(b=>{
+  b.addEventListener('click',()=>applyLang(b.dataset.lang));
+});
+
+/* ============ typed roles ============ */
+const ROLES = {
+  en:["Aspiring Penetration Tester","Systems Administration Student","IT Support Intern @ Ukio","Breaking & building in the lab"],
+  es:["Futuro Pentester","Estudiante de Administración de Sistemas","IT Support Intern en Ukio","Rompiendo y construyendo en el lab"]
+};
+let typeTimer=null, ri=0, ci=0, deleting=false;
+function buildTyped(){
+  if(typeTimer) clearTimeout(typeTimer);
+  ri=0;ci=0;deleting=false;
+  const el=document.getElementById('typed'); el.textContent='';
+  typeLoop();
+}
+function typeLoop(){
+  const list=ROLES[currentLang];
+  const full=list[ri];
+  const el=document.getElementById('typed');
+  if(!deleting){
+    el.textContent=full.slice(0,++ci);
+    if(ci===full.length){deleting=true;typeTimer=setTimeout(typeLoop,1600);return;}
+  }else{
+    el.textContent=full.slice(0,--ci);
+    if(ci===0){deleting=false;ri=(ri+1)%list.length;}
+  }
+  typeTimer=setTimeout(typeLoop, deleting?45:85);
+}
+
+/* ============ terminal boot ============ */
+const TERM = [
+  {h:'<span class="p">yassin@portfolio</span>:<span class="arg">~</span>$ whoami'},
+  {o:'Yassin Kamal — aspiring penetration tester'},
+  {h:'<span class="p">yassin@portfolio</span>:<span class="arg">~</span>$ cat profile.json'},
+  {o:'{\n  "role": "<b>Pentester (in training)</b>",\n  "location": "Barcelona, ES",\n  "study": "ASIX — final year",\n  "now": "IT Support Intern @ Ukio",\n  "focus": ["offensive-security","systems","scripting"]\n}'},
+  {h:'<span class="p">yassin@portfolio</span>:<span class="arg">~</span>$ ls certs/'},
+  {o:'<span class="badge-inline">google-cybersecurity.cert</span>   comptia-security+.loading'},
+  {h:'<span class="p">yassin@portfolio</span>:<span class="arg">~</span>$ echo $STATUS'},
+  {o:'<b style="color:var(--neon)">Ready. Scroll to explore ↓</b>'}
+];
+function bootTerminal(){
+  const term=document.getElementById('term');
+  term.innerHTML='';
+  let i=0;
+  function next(){
+    if(i>=TERM.length) return;
+    const line=document.createElement('div');
+    line.className='term-line';
+    const item=TERM[i];
+    if(item.h){ line.innerHTML=item.h; term.appendChild(line); i++; setTimeout(next,420); }
+    else { line.innerHTML='<span class="term-out">'+item.o+'</span>'; term.appendChild(line); i++; setTimeout(next,520); }
+    term.scrollTop=term.scrollHeight;
+  }
+  next();
+}
+
+/* ============ reveal on scroll ============ */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ============ burger ============ */
+document.getElementById('burger').addEventListener('click',()=>{
+  document.getElementById('navlinks').classList.toggle('open');
+});
+document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('navlinks').classList.remove('open');
+}));
+
+/* ============ init ============ */
+document.getElementById('year').textContent=new Date().getFullYear();
+let saved='en'; try{ saved=localStorage.getItem('lang')||'en'; }catch(e){}
+applyLang(saved);
+bootTerminal();
+</script>
+</body>
+</html>
