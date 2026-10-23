@@ -4,7 +4,7 @@ Personal portfolio of **Yassin Kamal**, systems administration (ASIX) student an
 
 🔗 **Live:** https://portfolio-sand-eight-20.vercel.app
 
-![Portfolio preview](img/og.png)
+![Portfolio preview](img/og-v2.png)
 
 ## Features
 - Bilingual (English / Español) with a language toggle
