@@ -157,11 +157,11 @@ header.nav{
 .c.r{background:#ff5f56}.c.y{background:#ffbd2e}.c.g{background:#27c93f}
 .term-bar .path{margin-left:10px;font-family:var(--mono);font-size:.78rem;color:var(--muted-2)}
 .term-body{padding:20px;font-family:var(--mono);font-size:.88rem;min-height:300px;line-height:1.55}
-.term-line{margin-bottom:8px;white-space:pre-wrap;word-break:break-word}
+.term-line{margin-bottom:8px;white-space:pre-wrap;word-break:break-word;color:#8a99ab}
 .term-line .p{color:var(--neon)}
 .term-line .arg{color:var(--cyan)}
-.term-out{color:#9dffc0}
-.term-out b{color:#fff}
+.term-out{color:#8a99ab}
+.term-out b{color:#d3dbe4;font-weight:600}
 .term-out .k{color:var(--cyan)}
 .badge-inline{color:var(--amber)}
 
@@ -173,25 +173,23 @@ header.nav{
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:10px}
 .stat{border:1px solid var(--line-2);background:var(--panel);border-radius:14px;padding:20px;text-align:center;transition:.25s}
 .stat:hover{border-color:var(--line);transform:translateY(-3px)}
-.stat .n{font-family:var(--mono);font-size:1.9rem;font-weight:700;color:var(--neon)}
+.stat .si{width:30px;height:30px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;border-radius:9px;background:rgba(57,255,20,.07);border:1px solid var(--line);color:var(--neon)}
+.stat .si svg{width:17px;height:17px}
+.stat .n{font-family:var(--mono);font-size:1.9rem;font-weight:700;color:var(--neon);line-height:1.2}
 .stat .l{color:var(--muted);font-size:.82rem;margin-top:4px}
 
 /* ===================== ABOUT ===================== */
 .about-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:46px;align-items:center}
-.photo-frame{position:relative;max-width:380px;isolation:isolate;padding-top:18px}
-.photo-frame::before{content:"";position:absolute;inset:14% 4% 4% 4%;border-radius:50%;z-index:-1;filter:blur(18px);
-  background:radial-gradient(circle at 50% 40%,rgba(57,255,20,.30),rgba(34,211,238,.12) 48%,transparent 72%)}
-.photo-frame::after{content:"";position:absolute;inset:0 3% 0 3%;border:1px solid var(--line);border-radius:999px 999px 22px 22px;z-index:-2;
-  background:linear-gradient(180deg,rgba(57,255,20,.05),transparent 70%)}
-.photo-frame img{position:relative;width:100%;height:auto;filter:drop-shadow(0 0 12px rgba(57,255,20,.18)) drop-shadow(0 0 1px rgba(124,255,178,.35));
-  -webkit-mask-image:linear-gradient(180deg,#000 80%,transparent 99%);mask-image:linear-gradient(180deg,#000 80%,transparent 99%)}
+.photo-frame{position:relative;max-width:380px}
+.photo-frame img{width:100%;height:auto;-webkit-mask-image:linear-gradient(180deg,#000 84%,transparent 99%);mask-image:linear-gradient(180deg,#000 84%,transparent 99%)}
 .photo-tag{position:absolute;bottom:-14px;left:16px;font-family:var(--mono);font-size:.74rem;color:var(--neon);
   background:var(--bg-2);border:1px solid var(--line);padding:6px 12px;border-radius:8px}
 .about-body p{color:var(--muted);margin-bottom:16px}
 .about-body p b{color:var(--txt)}
 .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:8px}
-.chip{font-family:var(--mono);font-size:.78rem;color:var(--neon-soft);border:1px solid var(--line);
+.chip{transition:.2s;font-family:var(--mono);font-size:.78rem;color:var(--neon-soft);border:1px solid var(--line);
   background:rgba(57,255,20,.04);padding:6px 12px;border-radius:999px}
+a.chip:hover{border-color:var(--neon);color:var(--neon)}
 
 /* ===================== PROJECTS ===================== */
 .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:40px}
@@ -208,8 +206,8 @@ header.nav{
 .card.feat{grid-column:span 2;background:linear-gradient(135deg,#0e1620,#0b1018)}
 .card .ptag{position:absolute;top:22px;right:22px;font-family:var(--mono);font-size:.7rem;
   color:var(--amber);border:1px solid rgba(255,180,84,.3);padding:4px 9px;border-radius:999px}
-.card h3{font-size:1.45rem;font-weight:700;letter-spacing:-.01em;line-height:1.2;margin-bottom:10px}
-.card.feat h3{font-size:clamp(1.7rem,3vw,2.2rem);margin-bottom:12px}
+.card h3{font-size:1.45rem;font-weight:700;letter-spacing:-.01em;line-height:1.2;margin-bottom:16px}
+.card.feat h3{font-size:clamp(1.7rem,3vw,2.2rem);margin-bottom:22px}
 .card h3 .edu{font-size:.75rem;font-family:var(--mono);color:var(--amber);font-weight:500;vertical-align:middle;margin-left:4px}
 .card p{color:var(--muted);font-size:1rem;line-height:1.65;margin-bottom:18px}
 .tech{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
@@ -222,7 +220,7 @@ header.nav{
 .note-lock{color:var(--muted);font-size:.8rem}
 
 .feat-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:center}
-.sub-t{display:block;color:var(--neon-soft);font-family:var(--mono);font-weight:500;font-size:.9rem;letter-spacing:0;margin-top:6px}
+.sub-t{display:block;color:var(--neon-soft);font-family:var(--mono);font-weight:500;font-size:.9rem;letter-spacing:0;margin-top:10px}
 .feat-list{list-style:none;margin:0 0 18px}
 .feat-list li{color:var(--muted);font-size:.98rem;padding:5px 0 5px 22px;position:relative}
 .feat-list li::before{content:"›";position:absolute;left:4px;color:var(--neon);font-weight:700}
@@ -247,13 +245,21 @@ header.nav{
 /* ===================== SKILLS ===================== */
 .skills-wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;margin-top:40px;align-items:start}
 .skill-cat{margin-bottom:26px}
-.skill-cat h4{font-family:var(--mono);font-size:.82rem;color:var(--muted);text-transform:uppercase;
-  letter-spacing:.1em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.skill-cat h4{font-family:var(--mono);font-size:.82rem;color:var(--txt);text-transform:uppercase;
+  letter-spacing:.1em;margin-bottom:22px;display:flex;align-items:center;gap:8px}
 .skill-cat h4::before{content:"▹";color:var(--neon)}
 .tools{display:flex;flex-wrap:wrap;gap:10px}
 .tool{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.85rem;
   border:1px solid var(--line-2);background:var(--panel);padding:9px 14px;border-radius:10px;transition:.22s}
-.tool:hover{border-color:var(--neon);color:var(--neon);transform:translateY(-2px)}
+.tool{position:relative;cursor:default;padding-bottom:11px!important}
+.tool::after{content:"";position:absolute;left:10px;bottom:4px;height:3px;width:0;border-radius:3px;
+  background:linear-gradient(90deg,var(--neon),var(--cyan));transition:width .7s cubic-bezier(.2,.7,.2,1)}
+.tool::before{content:attr(data-lvl);position:absolute;bottom:calc(100% + 5px);left:50%;transform:translate(-50%,4px);opacity:0;
+  font-size:.7rem;color:var(--neon);background:var(--bg-2);border:1px solid var(--line);padding:3px 8px;border-radius:6px;
+  white-space:nowrap;pointer-events:none;transition:.25s;z-index:2}
+.tool:hover,.tool:focus-visible{border-color:var(--neon);color:var(--neon);transform:translateY(-2px);outline:none}
+.tool:hover::after,.tool:focus-visible::after{width:calc((100% - 20px) * var(--lvl))}
+.tool:hover::before,.tool:focus-visible::before{opacity:1;transform:translate(-50%,0)}
 .tool .d{width:7px;height:7px;border-radius:50%;background:var(--neon)}
 .cert-card{background:var(--panel);border:1px solid var(--line-2);border-radius:14px;padding:20px;margin-bottom:14px;transition:.25s}
 .cert-card:hover{border-color:var(--line)}
@@ -275,6 +281,8 @@ header.nav{
 .tl-item .when{font-family:var(--mono);font-size:.78rem;color:var(--cyan);margin-bottom:4px}
 .tl-item h4{font-size:1.1rem;font-weight:600}
 .tl-item .org{color:var(--muted);font-size:.9rem}
+a.ext{color:inherit;border-bottom:1px dashed rgba(57,255,20,.45);transition:.2s}
+a.ext:hover{color:var(--neon);border-bottom-color:var(--neon)}
 .tl-item p{color:var(--muted);font-size:.9rem;margin-top:6px;max-width:560px}
 .tag-now{font-family:var(--mono);font-size:.68rem;color:var(--neon);border:1px solid var(--line);
   padding:2px 8px;border-radius:999px;margin-left:8px}
@@ -392,10 +400,10 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
   <!-- stats -->
   <div class="wrap">
     <div class="stats reveal">
-      <div class="stat"><div class="n">5</div><div class="l" data-i18n="stat.projects">Projects</div></div>
-      <div class="stat"><div class="n">1</div><div class="l" data-i18n="stat.cert">Certification</div></div>
-      <div class="stat"><div class="n">4</div><div class="l" data-i18n="stat.langs">Languages</div></div>
-      <div class="stat"><div class="n">6</div><div class="l" data-i18n="stat.learn">VLANs in my lab</div></div>
+      <div class="stat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m10 12-2 2 2 2M14 12l2 2-2 2"/></svg></div><div class="n">5</div><div class="l" data-i18n="stat.projects">Projects</div></div>
+      <div class="stat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="m9 13.5-1.5 7.5L12 18.5l4.5 2.5L15 13.5"/></svg></div><div class="n">1</div><div class="l" data-i18n="stat.cert">Certification</div></div>
+      <div class="stat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><div class="n">4</div><div class="l" data-i18n="stat.langs">Languages</div></div>
+      <div class="stat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2.5" width="6" height="5" rx="1"/><rect x="2.5" y="16.5" width="6" height="5" rx="1"/><rect x="15.5" y="16.5" width="6" height="5" rx="1"/><path d="M12 7.5v4M5.5 16.5v-2.5h13v2.5"/></svg></div><div class="n">6</div><div class="l" data-i18n="stat.learn">VLANs in my lab</div></div>
     </div>
   </div>
 </section>
@@ -407,18 +415,18 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
     <h2 class="title" data-i18n="about.title">A bit <b>about me</b></h2>
     <div class="about-grid" style="margin-top:40px">
       <div class="photo-frame reveal">
-        <img src="img/profile-duotone.webp" alt="Yassin Kamal" width="897" height="1204" />
+        <img src="img/profile-halftone-v2.png" alt="Yassin Kamal" width="897" height="1204" />
         <span class="photo-tag">./yassin --whoami</span>
       </div>
       <div class="about-body reveal">
-        <p data-i18n="about.p1">I'm a <b>systems administration (ASIX) student</b> based in Barcelona, finishing my degree this year. My goal is clear: become a <b>penetration tester</b>.</p>
+        <p data-i18n="about.p1">I"m a <b>systems administration (ASIX) student</b> at <a class="ext" href="https://gracia.lasalle.cat/cfgs/asix/" target="_blank" rel="noopener">La Salle Gràcia</a> in Barcelona, finishing my degree this year. My goal is clear: become a <b>penetration tester</b>.</p>
         <p data-i18n="about.p2">Right now I'm sharpening my fundamentals — networking, Linux, scripting and the core offensive tooling — before going after more certifications. I love the mix of <b>systems and hacking</b>: understanding how infrastructure works and then learning how to break and defend it.</p>
-        <p data-i18n="about.p3">I come from a business &amp; technology background (Baccalauréat STMG, two years at UAB), which gives me a practical, product-minded view of IT. Today I apply it daily as an <b>IT Support Intern at Ukio</b>.</p>
+        <p data-i18n="about.p3">I come from a business & technology background (Baccalauréat STMG, two years at <a class="ext" href="https://www.uab.cat" target="_blank" rel="noopener">UAB</a>), which gives me a practical, product-minded view of IT. Today I apply it daily as an <b>IT Support Intern at <a class="ext" href="https://ukio.com" target="_blank" rel="noopener">Ukio</a></b>.</p>
         <div class="chips">
           <span class="chip" data-i18n="chip.loc">📍 Barcelona, Spain</span>
           <span class="chip" data-i18n="chip.study">🎓 ASIX · final year</span>
           <span class="chip" data-i18n="chip.focus">🛡️ Offensive security</span>
-          <span class="chip">💼 IT Support @ Ukio</span>
+          <a class="chip" href="https://ukio.com" target="_blank" rel="noopener">💼 IT Support @ Ukio</a>
         </div>
       </div>
     </div>
@@ -530,38 +538,38 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
         <div class="skill-cat">
           <h4 data-i18n="skills.offensive">Offensive security</h4>
           <div class="tools">
-            <span class="tool"><span class="d"></span>Nmap</span>
-            <span class="tool"><span class="d"></span>Metasploit</span>
-            <span class="tool"><span class="d"></span>Burp Suite</span>
-            <span class="tool"><span class="d"></span>Wireshark</span>
-            <span class="tool"><span class="d"></span>John the Ripper</span>
+            <span class="tool" tabindex="0" style="--lvl:0.65" data-lvl="65%"><span class="d"></span>Nmap</span>
+            <span class="tool" tabindex="0" style="--lvl:0.45" data-lvl="45%"><span class="d"></span>Metasploit</span>
+            <span class="tool" tabindex="0" style="--lvl:0.4" data-lvl="40%"><span class="d"></span>Burp Suite</span>
+            <span class="tool" tabindex="0" style="--lvl:0.55" data-lvl="55%"><span class="d"></span>Wireshark</span>
+            <span class="tool" tabindex="0" style="--lvl:0.45" data-lvl="45%"><span class="d"></span>John the Ripper</span>
           </div>
         </div>
         <div class="skill-cat">
           <h4 data-i18n="skills.sys">Systems &amp; networking</h4>
           <div class="tools">
-            <span class="tool"><span class="d"></span>Linux</span>
-            <span class="tool"><span class="d"></span>Windows</span>
-            <span class="tool"><span class="d"></span>Proxmox</span>
-            <span class="tool"><span class="d"></span>OPNsense</span>
-            <span class="tool"><span class="d"></span>VLANs</span>
-            <span class="tool"><span class="d"></span>WireGuard</span>
-            <span class="tool"><span class="d"></span>Ansible</span>
-            <span class="tool"><span class="d"></span>Grafana</span>
-            <span class="tool"><span class="d"></span>PostgreSQL</span>
-            <span class="tool"><span class="d"></span>MySQL</span>
-            <span class="tool"><span class="d"></span>GNS3</span>
+            <span class="tool" tabindex="0" style="--lvl:0.75" data-lvl="75%"><span class="d"></span>Linux</span>
+            <span class="tool" tabindex="0" style="--lvl:0.8" data-lvl="80%"><span class="d"></span>Windows</span>
+            <span class="tool" tabindex="0" style="--lvl:0.7" data-lvl="70%"><span class="d"></span>Proxmox</span>
+            <span class="tool" tabindex="0" style="--lvl:0.65" data-lvl="65%"><span class="d"></span>OPNsense</span>
+            <span class="tool" tabindex="0" style="--lvl:0.65" data-lvl="65%"><span class="d"></span>VLANs</span>
+            <span class="tool" tabindex="0" style="--lvl:0.6" data-lvl="60%"><span class="d"></span>WireGuard</span>
+            <span class="tool" tabindex="0" style="--lvl:0.55" data-lvl="55%"><span class="d"></span>Ansible</span>
+            <span class="tool" tabindex="0" style="--lvl:0.5" data-lvl="50%"><span class="d"></span>Grafana</span>
+            <span class="tool" tabindex="0" style="--lvl:0.5" data-lvl="50%"><span class="d"></span>PostgreSQL</span>
+            <span class="tool" tabindex="0" style="--lvl:0.55" data-lvl="55%"><span class="d"></span>MySQL</span>
+            <span class="tool" tabindex="0" style="--lvl:0.5" data-lvl="50%"><span class="d"></span>GNS3</span>
           </div>
         </div>
         <div class="skill-cat">
           <h4 data-i18n="skills.dev">Scripting &amp; dev</h4>
           <div class="tools">
-            <span class="tool"><span class="d"></span>Python</span>
-            <span class="tool"><span class="d"></span>Bash</span>
-            <span class="tool"><span class="d"></span>PHP</span>
-            <span class="tool"><span class="d"></span>HTML5</span>
-            <span class="tool"><span class="d"></span>CSS3</span>
-            <span class="tool"><span class="d"></span>JavaScript</span>
+            <span class="tool" tabindex="0" style="--lvl:0.55" data-lvl="55%"><span class="d"></span>Python</span>
+            <span class="tool" tabindex="0" style="--lvl:0.6" data-lvl="60%"><span class="d"></span>Bash</span>
+            <span class="tool" tabindex="0" style="--lvl:0.4" data-lvl="40%"><span class="d"></span>PHP</span>
+            <span class="tool" tabindex="0" style="--lvl:0.75" data-lvl="75%"><span class="d"></span>HTML5</span>
+            <span class="tool" tabindex="0" style="--lvl:0.7" data-lvl="70%"><span class="d"></span>CSS3</span>
+            <span class="tool" tabindex="0" style="--lvl:0.45" data-lvl="45%"><span class="d"></span>JavaScript</span>
           </div>
         </div>
       </div>
@@ -569,13 +577,13 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
         <div class="skill-cat"><h4 data-i18n="skills.certs">Certifications</h4></div>
         <div class="cert-card reveal">
           <div class="top">
-            <div><h5>Google Cybersecurity</h5><div class="issuer">Google · Professional Certificate</div></div>
+            <div><h5>Google Cybersecurity</h5><div class="issuer"><a class="ext" href="https://grow.google/certificates/cybersecurity/" target="_blank" rel="noopener">Google</a> · Professional Certificate</div></div>
             <span class="cert-state done" data-i18n="cert.done">✓ Earned</span>
           </div>
         </div>
         <div class="cert-card reveal">
           <div class="top">
-            <div><h5>CompTIA Security+</h5><div class="issuer">CompTIA</div></div>
+            <div><h5>CompTIA Security+</h5><div class="issuer"><a class="ext" href="https://www.comptia.org/certifications/security" target="_blank" rel="noopener">CompTIA</a></div></div>
             <span class="cert-state wip" data-i18n="cert.wip">◴ Next up</span>
           </div>
         </div>
@@ -610,19 +618,19 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
       <div class="tl-item now reveal">
         <div class="when">2026 — <span data-i18n="path.present">Present</span></div>
         <h4 data-i18n="path.ukio.t">IT Support Intern <span class="tag-now" data-i18n="path.current">current</span></h4>
-        <div class="org">Ukio · Barcelona</div>
+        <div class="org"><a class="ext" href="https://ukio.com" target="_blank" rel="noopener">Ukio</a> · Barcelona</div>
         <p data-i18n="path.ukio.d">Supporting day-to-day IT operations: user support, hardware and software troubleshooting, and keeping systems running smoothly across the team.</p>
       </div>
       <div class="tl-item reveal">
         <div class="when">2024 — 2026</div>
         <h4 data-i18n="path.asix.t">Higher Diploma in Systems Administration (ASIX)</h4>
-        <div class="org" data-i18n="path.asix.o">Vocational training · final year</div>
+        <div class="org" data-i18n="path.asix.o"><a class="ext" href="https://gracia.lasalle.cat/cfgs/asix/" target="_blank" rel="noopener">La Salle Gràcia</a> · Vocational training · final year</div>
         <p data-i18n="path.asix.d">Networks, operating systems, servers, databases and security — the systems foundation I'm building my pentesting path on.</p>
       </div>
       <div class="tl-item reveal">
         <div class="when">2022 — 2024</div>
         <h4 data-i18n="path.uab.t">Business &amp; Technology</h4>
-        <div class="org">Universitat Autònoma de Barcelona (UAB)</div>
+        <div class="org"><a class="ext" href="https://www.uab.cat" target="_blank" rel="noopener">Universitat Autònoma de Barcelona (UAB)</a></div>
         <p data-i18n="path.uab.d">Two years bridging business and technology — a product and problem-solving mindset I carry into IT.</p>
       </div>
       <div class="tl-item reveal">
@@ -665,9 +673,9 @@ const I18N = {
     "hero.cta2":"Get in touch",
     "stat.projects":"Projects","chip.loc":"📍 Barcelona, Spain","chip.study":"🎓 ASIX · final year","chip.focus":"🛡️ Offensive security","stat.cert":"Certification","stat.langs":"Languages","stat.learn":"VLANs in my lab",
     "about.eyebrow":"whoami","about.title":"A bit <b>about me</b>",
-    "about.p1":"I'm a <b>systems administration (ASIX) student</b> based in Barcelona, finishing my degree this year. My goal is clear: become a <b>penetration tester</b>.",
+    "about.p1":"I'm a <b>systems administration (ASIX) student</b> at <a class='ext' href='https://gracia.lasalle.cat/cfgs/asix/' target='_blank' rel='noopener'>La Salle Gràcia</a> in Barcelona, finishing my degree this year. My goal is clear: become a <b>penetration tester</b>.",
     "about.p2":"Right now I'm sharpening my fundamentals — networking, Linux, scripting and the core offensive tooling — before going after more certifications. I love the mix of <b>systems and hacking</b>: understanding how infrastructure works and then learning how to break and defend it.",
-    "about.p3":"I come from a business & technology background (Baccalauréat STMG, two years at UAB), which gives me a practical, product-minded view of IT. Today I apply it daily as an <b>IT Support Intern at Ukio</b>.",
+    "about.p3":"I come from a business & technology background (Baccalauréat STMG, two years at <a class='ext' href='https://www.uab.cat' target='_blank' rel='noopener'>UAB</a>), which gives me a practical, product-minded view of IT. Today I apply it daily as an <b>IT Support Intern at <a class='ext' href='https://ukio.com' target='_blank' rel='noopener'>Ukio</a></b>.",
     "proj.eyebrow":"ls -la ~/projects","proj.title":"Things I've <b>built</b>",
     "proj.lead":"A mix of <b>offensive-security tooling</b>, <b>infrastructure</b> and <b>web</b> — built to learn, documented to share.",
     "proj.featured":"★ Featured · ASIX final project","proj.soon":"🔒 Private infra repo · technical docs available on request","proj.live":"Live demo →",
@@ -693,7 +701,7 @@ const I18N = {
     "lang.es":"Spanish","lang.ca":"Catalan","lang.en":"English","lang.fr":"French","lang.native":"Native",
     "path.eyebrow":"history | tail","path.title":"Education & <b>experience</b>","path.present":"Present","path.current":"current",
     "path.ukio.t":"IT Support Intern","path.ukio.d":"Supporting day-to-day IT operations: <b>user support</b>, <b>hardware and software troubleshooting</b>, and keeping systems running smoothly across the team.",
-    "path.asix.t":"Higher Diploma in Systems Administration (ASIX)","path.asix.o":"Vocational training · final year",
+    "path.asix.t":"Higher Diploma in Systems Administration (ASIX)","path.asix.o":"<a class='ext' href='https://gracia.lasalle.cat/cfgs/asix/' target='_blank' rel='noopener'>La Salle Gràcia</a> · Vocational training · final year",
     "path.asix.d":"<b>Networks, operating systems, servers, databases and security</b> — the systems foundation I'm building my pentesting path on.",
     "path.uab.t":"Business & Technology","path.uab.d":"Two years bridging <b>business and technology</b> — a product and <b>problem-solving mindset</b> I carry into IT.",
     "path.bac.t":"Baccalauréat — STMG","path.bac.o":"Science & Technology of Management",
@@ -715,9 +723,9 @@ const I18N = {
     "hero.cta2":"Hablemos",
     "stat.projects":"Proyectos","chip.loc":"📍 Barcelona, España","chip.study":"🎓 ASIX · último año","chip.focus":"🛡️ Seguridad ofensiva","stat.cert":"Certificación","stat.langs":"Idiomas","stat.learn":"VLANs en mi lab",
     "about.eyebrow":"whoami","about.title":"Un poco <b>sobre mí</b>",
-    "about.p1":"Soy <b>estudiante de administración de sistemas (ASIX)</b> en Barcelona y termino el grado este año. Mi objetivo es claro: ser <b>pentester</b>.",
+    "about.p1":"Soy <b>estudiante de administración de sistemas (ASIX)</b> en <a class='ext' href='https://gracia.lasalle.cat/cfgs/asix/' target='_blank' rel='noopener'>La Salle Gràcia</a>, en Barcelona, y termino el grado este año. Mi objetivo es claro: ser <b>pentester</b>.",
     "about.p2":"Ahora mismo estoy reforzando mis fundamentos — redes, Linux, scripting y las herramientas ofensivas clave — antes de ir a por más certificaciones. Me encanta la mezcla de <b>sistemas y hacking</b>: entender cómo funciona la infraestructura y luego aprender a romperla y defenderla.",
-    "about.p3":"Vengo de un perfil de empresa y tecnología (Baccalauréat STMG, dos años en la UAB), lo que me da una visión práctica y orientada al producto. Hoy lo aplico cada día como <b>IT Support Intern en Ukio</b>.",
+    "about.p3":"Vengo de un perfil de empresa y tecnología (Baccalauréat STMG, dos años en la <a class='ext' href='https://www.uab.cat' target='_blank' rel='noopener'>UAB</a>), lo que me da una visión práctica y orientada al producto. Hoy lo aplico cada día como <b>IT Support Intern en <a class='ext' href='https://ukio.com' target='_blank' rel='noopener'>Ukio</a></b>.",
     "proj.eyebrow":"ls -la ~/proyectos","proj.title":"Cosas que he <b>construido</b>",
     "proj.lead":"Una mezcla de <b>tooling de seguridad ofensiva</b>, <b>infraestructura</b> y <b>web</b> — hechos para aprender, documentados para compartir.",
     "proj.featured":"★ Destacado · Proyecto final ASIX","proj.soon":"🔒 Repo de infra privado · documentación técnica bajo petición","proj.live":"Demo en vivo →",
@@ -743,7 +751,7 @@ const I18N = {
     "lang.es":"Español","lang.ca":"Catalán","lang.en":"Inglés","lang.fr":"Francés","lang.native":"Nativo",
     "path.eyebrow":"history | tail","path.title":"Formación y <b>experiencia</b>","path.present":"Actualidad","path.current":"actual",
     "path.ukio.t":"IT Support Intern","path.ukio.d":"Dando soporte a las operaciones de IT del día a día: <b>ayuda a usuarios</b>, <b>resolución de incidencias de hardware y software</b>, y mantener los sistemas funcionando para todo el equipo.",
-    "path.asix.t":"CFGS Administración de Sistemas (ASIX)","path.asix.o":"Formación profesional · último año",
+    "path.asix.t":"CFGS Administración de Sistemas (ASIX)","path.asix.o":"<a class='ext' href='https://gracia.lasalle.cat/cfgs/asix/' target='_blank' rel='noopener'>La Salle Gràcia</a> · Formación profesional · último año",
     "path.asix.d":"<b>Redes, sistemas operativos, servidores, bases de datos y seguridad</b> — la base de sistemas sobre la que construyo mi camino hacia el pentesting.",
     "path.uab.t":"Empresa y Tecnología","path.uab.d":"Dos años uniendo <b>empresa y tecnología</b> — una mentalidad de producto y <b>resolución de problemas</b> que llevo a IT.",
     "path.bac.t":"Baccalauréat — STMG","path.bac.o":"Ciencias y Tecnologías de la Gestión",
