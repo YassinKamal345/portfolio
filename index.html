@@ -471,11 +471,11 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
             <p data-i18n="proj.lab.d">A fictional company selling a mini-PC "box" so customers run their own services at home with zero subscriptions: AdGuard, in-house apps and a WireGuard VPN back to HQ. We built the headquarters as a lab on Proxmox, in an isolated virtual network.</p>
             <ul class="feat-list">
               <li data-i18n="proj.lab.l1"><b>OPNsense</b> firewall with <b>6 VLANs</b>, DNS, DHCP and a reverse proxy</li>
-              <li data-i18n="proj.lab.l2"><b>PostgreSQL</b>, <b>Gitea</b> and monitoring with <b>Grafana</b> + <b>Uptime Kuma</b></li>
+              <li data-i18n="proj.lab.l2"><b>PostgreSQL</b>, <b>Gitea</b> and monitoring with <b>Prometheus</b> + <b>Grafana</b></li>
               <li data-i18n="proj.lab.l3">Everything deployed with <b>Ansible</b> (nosub-infra) — rebuilt from scratch in minutes</li>
               <li data-i18n="proj.lab.l4">Hardening &amp; closure: <b>TOTP on OPNsense</b>, risk analysis, a power-outage drill and a <b>GNS3</b> rehearsal</li>
             </ul>
-            <div class="tech"><span>Proxmox</span><span>OPNsense</span><span>VLANs</span><span>WireGuard</span><span>Ansible</span><span>PostgreSQL</span><span>Grafana</span><span>Uptime Kuma</span><span>Gitea</span><span>GNS3</span></div>
+            <div class="tech"><span>Proxmox</span><span>OPNsense</span><span>VLANs</span><span>WireGuard</span><span>Ansible</span><span>PostgreSQL</span><span>Prometheus</span><span>Grafana</span><span>Gitea</span><span>GNS3</span></div>
             <div class="card-links">
               <a href="https://github.com/YassinKamal345/nosub-infra" target="_blank" rel="noopener" data-i18n="proj.soon">GitHub (Ansible repo) →</a>
             </div>
@@ -487,7 +487,7 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
             <div class="arch-node fw">🛡️ OPNsense<small>6 VLANs · TOTP</small></div>
             <div class="arch-vlans">
               <div class="vl">DNS/DHCP</div><div class="vl">Proxy</div><div class="vl">PostgreSQL</div>
-              <div class="vl">Gitea</div><div class="vl">Grafana</div><div class="vl">Uptime Kuma</div>
+              <div class="vl">Gitea</div><div class="vl">Prometheus</div><div class="vl">Grafana</div>
             </div>
             <div class="arch-foot">⚙️ Proxmox · <b>ansible-playbook site.yml</b></div>
           </div>
@@ -724,7 +724,7 @@ const I18N = {
     "proj.lab.t":"self-hosted infrastructure, no subscriptions",
     "proj.lab.d":"A fictional company selling a <b>mini-PC \"box\"</b> so customers run their own services at home with <b>zero subscriptions</b>: AdGuard, in-house apps and a <b>WireGuard VPN</b> back to HQ. We built the headquarters as a lab on <b>Proxmox</b>, in an isolated virtual network.",
     "proj.lab.l1":"<b>OPNsense</b> firewall with <b>6 VLANs</b>, DNS, DHCP and a reverse proxy",
-    "proj.lab.l2":"<b>PostgreSQL</b>, <b>Gitea</b> and monitoring with <b>Grafana</b> + <b>Uptime Kuma</b>",
+    "proj.lab.l2":"<b>PostgreSQL</b>, <b>Gitea</b> and monitoring with <b>Prometheus</b> + <b>Grafana</b>",
     "proj.lab.l3":"Everything deployed with <b>Ansible</b> (nosub-infra) — rebuilt from scratch in minutes",
     "proj.lab.l4":"Hardening &amp; closure: <b>TOTP on OPNsense</b>, risk analysis, a power-outage drill and a <b>GNS3</b> rehearsal",
     "arch.box":"Customer box",
@@ -780,7 +780,7 @@ const I18N = {
     "proj.lab.t":"infraestructura self-hosted, sin suscripciones",
     "proj.lab.d":"Una empresa ficticia que vende una <b>\"caja\" (mini PC)</b> para que el cliente tenga sus servicios en casa <b>sin pagar suscripciones</b>: AdGuard, apps propias y <b>VPN WireGuard</b> hasta la sede. Montamos la sede central como laboratorio en <b>Proxmox</b>, en una red virtual aislada.",
     "proj.lab.l1":"Firewall <b>OPNsense</b> con <b>6 VLANs</b>, DNS, DHCP y proxy inverso",
-    "proj.lab.l2":"<b>PostgreSQL</b>, <b>Gitea</b> y monitorización con <b>Grafana</b> + <b>Uptime Kuma</b>",
+    "proj.lab.l2":"<b>PostgreSQL</b>, <b>Gitea</b> y monitorización con <b>Prometheus</b> + <b>Grafana</b>",
     "proj.lab.l3":"Todo desplegado con <b>Ansible</b> (nosub-infra) — se reconstruye desde cero en minutos",
     "proj.lab.l4":"Seguridad y cierre: <b>TOTP en OPNsense</b>, análisis de riesgos, simulacro de corte de luz y ensayo en <b>GNS3</b>",
     "arch.box":"Caja del cliente",
