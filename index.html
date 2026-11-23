@@ -409,7 +409,7 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
   <!-- stats -->
   <div class="wrap">
     <div class="stats reveal">
-      <div class="stat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m10 12-2 2 2 2M14 12l2 2-2 2"/></svg></div><div class="txt"><div class="n">8</div><div class="l" data-i18n="stat.projects">Projects</div></div></div>
+      <div class="stat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m10 12-2 2 2 2M14 12l2 2-2 2"/></svg></div><div class="txt"><div class="n">12</div><div class="l" data-i18n="stat.projects">Projects</div></div></div>
       <div class="stat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="m9 13.5-1.5 7.5L12 18.5l4.5 2.5L15 13.5"/></svg></div><div class="txt"><div class="n">1</div><div class="l" data-i18n="stat.cert">Certification</div></div></div>
       <div class="stat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><div class="txt"><div class="n">4</div><div class="l" data-i18n="stat.langs">Languages</div></div></div>
       <div class="stat"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2.5" width="6" height="5" rx="1"/><rect x="2.5" y="16.5" width="6" height="5" rx="1"/><rect x="15.5" y="16.5" width="6" height="5" rx="1"/><path d="M12 7.5v4M5.5 16.5v-2.5h13v2.5"/></svg></div><div class="txt"><div class="n">6</div><div class="l" data-i18n="stat.learn">VLANs in my lab</div></div></div>
@@ -506,6 +506,33 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
         </div>
       </article>
 
+      <!-- WinAudit -->
+      <article class="card reveal">
+        <div class="ic">🛡️</div>
+        <h3 data-i18n="proj.winaudit.t">WinAudit</h3>
+        <p data-i18n="proj.winaudit.d">A <b>read-only Windows security auditor</b> in pure Python: checks firewall, Defender, UAC, RDP, SMBv1, updates, BitLocker and listening ports, then gives a <b>score</b> and fixes.</p>
+        <div class="tech"><span>Python</span><span>Security</span><span>Windows</span></div>
+        <div class="card-links"><a href="https://github.com/YassinKamal345/WinAudit" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+
+      <!-- NetScanner -->
+      <article class="card reveal">
+        <div class="ic">📡</div>
+        <h3 data-i18n="proj.netscan.t">NetScanner</h3>
+        <p data-i18n="proj.netscan.d">A <b>TCP host and port scanner</b> in pure Python — no root, no dependencies. Discovers live hosts on a subnet and scans open ports. For authorized use on your own network.</p>
+        <div class="tech"><span>Python</span><span>Networking</span><span>Sockets</span></div>
+        <div class="card-links"><a href="https://github.com/YassinKamal345/NetScanner" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+
+      <!-- PassKit -->
+      <article class="card reveal">
+        <div class="ic">🔐</div>
+        <h3 data-i18n="proj.passkit.t">PassKit</h3>
+        <p data-i18n="proj.passkit.d">A <b>password toolkit</b> in Python: generator, strength meter and breach check via <b>Have I Been Pwned</b> with k-anonymity — only the hash prefix ever leaves your machine.</p>
+        <div class="tech"><span>Python</span><span>Security</span><span>HIBP</span></div>
+        <div class="card-links"><a href="https://github.com/YassinKamal345/PassKit" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+
       <!-- Raikko -->
       <article class="card reveal">
         <div class="ic">🛒</div>
@@ -531,6 +558,15 @@ footer .brand{justify-content:center;margin-bottom:10px;color:var(--muted)}
         <p data-i18n="proj.multi.d">A lightweight Batch menu for Windows: type a number and it launches the matching program or shortcut. A clean, fast way to bundle everyday tools behind one interface.</p>
         <div class="tech"><span>Batch</span><span>Windows</span><span>Automation</span></div>
         <div class="card-links"><a href="https://github.com/YassinKamal345/Multitool" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+
+      <!-- DupeFinder -->
+      <article class="card reveal">
+        <div class="ic">🗂️</div>
+        <h3 data-i18n="proj.dupe.t">DupeFinder</h3>
+        <p data-i18n="proj.dupe.d">Finds and removes <b>duplicate files</b> by content (size + SHA-256). A single Python file, safe by default — it always keeps one copy of each file.</p>
+        <div class="tech"><span>Python</span><span>CLI</span><span>Utility</span></div>
+        <div class="card-links"><a href="https://github.com/YassinKamal345/DupeFinder" target="_blank" rel="noopener">GitHub →</a></div>
       </article>
 
       <!-- WinCleaner -->
@@ -734,6 +770,14 @@ const I18N = {
     "proj.multi.d":"A lightweight <b>Batch menu</b> for Windows: type a number and it <b>launches the matching program</b> or shortcut. A clean, fast way to bundle everyday tools behind one interface.",
     "proj.cv.t":"CV Website",
     "proj.cv.d":"My résumé rebuilt as a <b>responsive HTML/CSS site</b> and <b>deployed on Vercel</b> — semantic markup, mobile-first, print-friendly. The predecessor of this very portfolio.",
+    "proj.winaudit.t":"WinAudit",
+    "proj.winaudit.d":"A <b>read-only Windows security auditor</b> in pure Python: checks firewall, Defender, UAC, RDP, SMBv1, updates, BitLocker and listening ports, then gives a <b>score</b> and fixes.",
+    "proj.netscan.t":"NetScanner",
+    "proj.netscan.d":"A <b>TCP host and port scanner</b> in pure Python — no root, no dependencies. Discovers live hosts on a subnet and scans open ports. For authorized use on your own network.",
+    "proj.passkit.t":"PassKit",
+    "proj.passkit.d":"A <b>password toolkit</b> in Python: generator, strength meter and breach check via <b>Have I Been Pwned</b> with k-anonymity — only the hash prefix ever leaves your machine.",
+    "proj.dupe.t":"DupeFinder",
+    "proj.dupe.d":"Finds and removes <b>duplicate files</b> by content (size + SHA-256). A single Python file, safe by default — it always keeps one copy of each file.",
     "proj.ccna.t":"CCNA 1 Practice Exam",
     "proj.ccna.d":"An interactive quiz to prepare the <b>CCNA 1 (ITN v7)</b> exam: 200+ original questions across all 17 modules, scored random batches, per-module stats, explained answers and a built-in <b>subnetting calculator</b>.",
     "proj.raikko.t":"Raikko · E-commerce",
@@ -790,6 +834,14 @@ const I18N = {
     "proj.multi.d":"Un <b>menú ligero en Batch</b> para Windows: escribes un número y <b>abre el programa</b> o acceso directo correspondiente. Una forma rápida y limpia de agrupar herramientas del día a día.",
     "proj.cv.t":"Web de CV",
     "proj.cv.d":"Mi currículum convertido en una <b>web responsive de HTML/CSS</b> y <b>desplegada en Vercel</b> — HTML semántico, mobile-first y lista para imprimir. El predecesor de este mismo portfolio.",
+    "proj.winaudit.t":"WinAudit",
+    "proj.winaudit.d":"Un <b>auditor de seguridad de Windows</b> de solo lectura en Python puro: revisa firewall, Defender, UAC, RDP, SMBv1, actualizaciones, BitLocker y puertos a la escucha, y da una <b>puntuación</b> con recomendaciones.",
+    "proj.netscan.t":"NetScanner",
+    "proj.netscan.d":"Un <b>escáner de hosts y puertos TCP</b> en Python puro, sin root ni dependencias. Descubre equipos vivos en una subred y escanea puertos abiertos. Para uso autorizado en tu propia red.",
+    "proj.passkit.t":"PassKit",
+    "proj.passkit.d":"Un <b>kit de contraseñas</b> en Python: generador, medidor de fuerza y comprobación de filtraciones con <b>Have I Been Pwned</b> y k-anonymity — solo sale de tu máquina el prefijo del hash.",
+    "proj.dupe.t":"DupeFinder",
+    "proj.dupe.d":"Encuentra y elimina <b>archivos duplicados</b> por contenido (tamaño + SHA-256). Un solo archivo Python, seguro por defecto — siempre conserva una copia de cada archivo.",
     "proj.ccna.t":"Simulador CCNA 1",
     "proj.ccna.d":"Un quiz interactivo para preparar el examen <b>CCNA 1 (ITN v7)</b>: más de 200 preguntas originales de los 17 módulos, tandas aleatorias con nota, estadísticas por módulo, respuestas explicadas y una <b>calculadora de subnetting</b>.",
     "proj.raikko.t":"Raikko · E-commerce",
